@@ -5,7 +5,12 @@ import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 
 class Custompageindicatorwidget extends StatelessWidget {
-  const new({super.key});
+
+
+  
+  const new({
+    super.key
+    });
 
   @override
   Widget build(BuildContext context) {

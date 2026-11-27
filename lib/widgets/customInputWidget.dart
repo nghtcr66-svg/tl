@@ -6,9 +6,8 @@ import 'package:lb/lb.dart';
 class Custominputwidget extends StatefulWidget {
 
   final String hint_text;
-  final bool obscure_text;
+  final bool hide;
   final TextEditingController controller;
-  final Widget? suffixIcon;
 
 
 
@@ -17,9 +16,8 @@ class Custominputwidget extends StatefulWidget {
   const Custominputwidget({
     super.key,
     required this.hint_text,
-    required this.obscure_text,
+    required this.hide,
     required this.controller,
-    this.suffixIcon
     });
 
   @override
@@ -27,13 +25,20 @@ class Custominputwidget extends StatefulWidget {
 }
 
 class _CustominputwidgetState extends State<Custominputwidget> {
+  bool _isHide = false;
+
+
+
   @override
   Widget build(BuildContext context) {
     return TextField(
-        obscureText: widget.obscure_text,
+        obscureText: _isHide,
         controller: widget.controller,
         decoration: InputDecoration(
-          suffixIcon: widget.suffixIcon,
+          suffixIcon: widget.hide ? InkWell(
+            onTap: () => setState(() => _isHide = !_isHide,
+            ), child: Icon(_isHide ? Icons.visibility_off : Icons.visibility, color: AppColors.Black,),
+            ): null,
           counterText: "",
           hintText: widget.hint_text,
           //эту часть я оченб долго вспоминал

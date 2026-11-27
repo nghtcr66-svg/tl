@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
                 child: Custominputwidget(
                   controller: TextEditingController(),
                   hint_text: "Full name",
-                  obscure_text: false,
+                  hide: true,
                   )
              )
             ),
